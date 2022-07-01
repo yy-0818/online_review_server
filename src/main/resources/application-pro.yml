@@ -1,0 +1,35 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: Xyac@2020
+    url: jdbc:mysql://121.199.20.214:33336/paper?useSSL=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+  redis:
+    database: 1
+    host: lunatic.ren
+    password: LunaticLunatic
+    port: 6379
+  mail:
+    default-encoding: UTF-8
+    host: smtp.163.com
+    password: PCUHDFSUSEUJGWAU
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+    username: geological666@163.com
+
+mybatis-plus:
+  global-config:
+    banner: false
+logging:
+  level:
+    com:
+      scientific: info
+    org:
+      springframework: warn
+      apache:
+        catalina: warn
+  file:
+    name: log/paper.log

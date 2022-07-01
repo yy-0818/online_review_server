@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scientific.audit.mapper.UserAnnouncementMapper">
+
+    <resultMap id="BaseResultMap" type="com.scientific.audit.common.model.entity.UserAnnouncement">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="uploaderId" column="uploader_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,title,content,
+        create_time,uploader_id
+    </sql>
+
+    <sql id="searchSql">
+        <if test="search != null and search !=  ''">
+            where
+            name LIKE concat('%'
+            , #{search}
+            , '%')
+            OR tb_user_announcement.content LIKE concat('%'
+            , #{search}
+            , '%')
+            OR tb_user_announcement.title LIKE concat('%'
+            , #{search}
+            , '%')
+        </if>
+    </sql>
+
+
+    <select id="findUserAnnounce" resultType="com.scientific.audit.common.model.vo.UserAnnouncementVo">
+        SELECT tb_user_announcement.*, tb_user.name
+        FROM tb_user_announcement
+        JOIN tb_user ON tb_user_announcement.uploader_id = tb_user.id
+        <include refid="searchSql"/>
+    </select>
+</mapper>

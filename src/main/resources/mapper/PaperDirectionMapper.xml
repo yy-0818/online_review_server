@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scientific.audit.mapper.PaperDirectionMapper">
+
+    <resultMap id="BaseResultMap" type="com.scientific.audit.common.model.entity.PaperDirection">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="paperId" column="paper_id" jdbcType="BIGINT"/>
+        <result property="directionId" column="direction_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,paper_id,direction_id
+    </sql>
+</mapper>

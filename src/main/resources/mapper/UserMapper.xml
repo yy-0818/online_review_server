@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scientific.audit.mapper.UserMapper">
+
+    <resultMap id="BaseResultMap" type="com.scientific.audit.common.model.entity.User">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="gender" column="gender" jdbcType="TINYINT"/>
+        <result property="role" column="role" jdbcType="TINYINT"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="avatarUrl" column="avatar_url" jdbcType="VARCHAR"/>
+        <result property="state" column="state" jdbcType="TINYINT"/>
+        <result property="directionId" column="direction_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <resultMap id="UserInfoResultMap" type="com.scientific.audit.common.model.vo.FindPaperTeacherVo">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id
+        ,email,password,
+        gender,role,name,
+        avatar_url,state,direction_id
+    </sql>
+
+    <sql id="searchUserSql">
+        <if test="search != null and search !=  ''">
+            AND (tb_user.id LIKE concat('%'
+            , #{search}
+            , '%')
+            OR tb_user.email LIKE concat('%'
+            , #{search}
+            , '%')
+            OR tb_user.name LIKE concat('%'
+            , #{search}
+            , '%')
+            OR tb_direction.name LIKE concat('%'
+            , #{search}
+            , '%')
+            )
+        </if>
+    </sql>
+
+    <select id="getUserAllVo" resultType="com.scientific.audit.common.model.vo.UserAllVo">
+        SELECT tb_user.id,email,
+        gender,
+        role,
+        tb_user.name,
+        avatar_url,
+        state,
+        direction_id,
+        tb_direction.name as direction_name
+        FROM tb_user
+        JOIN tb_direction ON tb_user.direction_id = tb_direction.id
+        <include refid="searchUserSql"/>
+    </select>
+
+    <select id="getUserByDirection" resultType="com.scientific.audit.common.model.vo.UserTeacherVo">
+        SELECT tb_user.id, tb_user.name as user_name, role, tb_user.direction_id, td.name AS direction_name
+        FROM tb_user
+        JOIN tb_direction td ON tb_user.direction_id = td.id
+        WHERE role = 3 and direction_id in
+        <foreach collection="ids" index="index" item="item" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+</mapper>
