@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: pro
+    active: dev
   application:
     name: ScientificResearchAuditSystem
   freemarker:
@@ -20,3 +20,8 @@ mybatis-plus:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 server:
   port: 8181
+qiniu:
+  accessKey: pMZtit7DLynmLmY1Wc3X6PPdgCSvWRrwnfUPGTce
+  accessSecretKey: QHSlrMKglANCOSJ-cbloV3ojpvu01nfIYw3JmB1f
+  bucket: ivan-paper
+  imageUrl: http://static.ivanlife.cn
