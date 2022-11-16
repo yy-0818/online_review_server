@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: 1234
+    password: 123456
     url: jdbc:mysql://localhost:3306/paper?useSSL=true&characterEncoding=utf-8&serverTimezone=UTC
     username: root
   devtools:
@@ -14,14 +14,14 @@ spring:
     port: 6379
   mail:
     default-encoding: UTF-8
-    host: smtp.163.com
-    password: PCUHDFSUSEUJGWAU
+    host: smtp.qq.com
+    password: yasmxbdyvyuebifh
     properties:
       mail:
         smtp:
           ssl:
             enable: true
-    username: geological666@163.com
+    username: 534764132@qq.com
 logging:
   level:
     com:
