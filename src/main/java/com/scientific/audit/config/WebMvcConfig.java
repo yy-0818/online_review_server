@@ -19,6 +19,7 @@ public class WebMvcConfig implements WebMvcConfigurer{
             "/user/register",
             "/files/**",
             "/api/sendEmail",
+            "/user/changePassword",
 
             "/swagger-ui/**",
             "/swagger-resources/**",
