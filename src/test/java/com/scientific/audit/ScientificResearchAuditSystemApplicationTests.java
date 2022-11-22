@@ -9,5 +9,4 @@ class ScientificResearchAuditSystemApplicationTests{
     @Test
     void contextLoads() {
     }
-
 }
