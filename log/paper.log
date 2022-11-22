@@ -1,8 +1,0 @@
-2022-01-04 16:13:19.585  INFO 9128 --- [restartedMain] com.scientific.audit.AuditApplication    : Starting AuditApplication using Java 1.8.0_302 on LAPTOP-DVBV83Q9 with PID 9128 (D:\workspace\ScientificResearchAuditSystem\target\classes started by 86176 in D:\workspace\ScientificResearchAuditSystem)
-2022-01-04 16:13:19.594  INFO 9128 --- [restartedMain] com.scientific.audit.AuditApplication    : The following profiles are active: pro
-2022-01-04 16:13:24.421  INFO 9128 --- [restartedMain] com.scientific.audit.AuditApplication    : Started AuditApplication in 5.241 seconds (JVM running for 6.503)
-2022-01-04 16:13:27.890  INFO 9128 --- [http-nio-8181-exec-1] c.s.audit.controller.UserController      : search : null
-2022-01-04 16:13:27.898  INFO 9128 --- [http-nio-8181-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2022-01-04 16:13:28.472  INFO 9128 --- [http-nio-8181-exec-1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2022-01-04 16:19:07.523  INFO 9128 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2022-01-04 16:19:07.529  INFO 9128 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
