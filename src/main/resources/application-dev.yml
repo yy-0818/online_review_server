@@ -15,13 +15,13 @@ spring:
   mail:
     default-encoding: UTF-8
     host: smtp.qq.com
-    password: yasmxbdyvyuebifh
     properties:
       mail:
         smtp:
           ssl:
             enable: true
-    username: 534764132@qq.com
+    username: //
+    password: //
 logging:
   level:
     com:
